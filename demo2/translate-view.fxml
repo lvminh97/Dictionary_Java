@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.translateController">
+   <children>
+      <TextField fx:id="text1" layoutX="27.0" layoutY="27.0" prefHeight="74.0" prefWidth="249.0" text="English" />
+      <TextField fx:id="text2" layoutX="388.0" layoutY="27.0" prefHeight="74.0" prefWidth="258.0" text="vietnames" />
+      <TextField fx:id="word" layoutX="27.0" layoutY="235.0" prefHeight="112.0" prefWidth="249.0" promptText="word" />
+      <TextField fx:id="meaning" layoutX="388.0" layoutY="235.0" prefHeight="112.0" prefWidth="258.0" promptText="meaning" />
+      <Button layoutX="302.0" layoutY="39.0" mnemonicParsing="false" onAction="#onSwitch" prefHeight="39.0" prefWidth="62.0" text="switch" />
+      <Button layoutX="294.0" layoutY="266.0" mnemonicParsing="false" onAction="#onTransClick" prefHeight="39.0" prefWidth="72.0" text="translate" />
+   </children>
+</Pane>
