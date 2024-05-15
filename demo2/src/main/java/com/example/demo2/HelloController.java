@@ -17,10 +17,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -265,11 +261,11 @@ public class HelloController extends interfaceApp {
         // thuc hien switch scene
         try {
             // Load FXML file của Scene mới
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("scene4.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("addword-view.fxml"));
             Parent addWordParent = loader.load();
 
             // Get controller của Scene mới
-            addWordController addWordController = loader.getController();
+            AddWordController addWordController = loader.getController();
 
             // Thực hiện bất kỳ thao tác nào cần thiết với controller của Scene mới
             addWordController.map(words);

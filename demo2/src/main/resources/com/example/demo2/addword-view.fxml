@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextArea?>
+<Pane xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo2.AddWordController"
+      style="-fx-background-color: #CCFFFF"
+      prefWidth="600.0" prefHeight="400.0">
+    <Text fx:id="title" textAlignment="CENTER"
+        layoutX="200.0" layoutY="40.0" text="ADD WORD">
+        <font>
+            <Font size="30.0"/>
+        </font>
+    </Text>
+    <Button layoutX="460.0" layoutY="8.0"
+        onAction="#onBackClick"
+        prefWidth="108.0" prefHeight="35.0"
+        text="Back">
+    </Button>
+
+    <TextField fx:id="word"
+        layoutX="30.0" layoutY="90.0"
+        prefWidth="250.0" prefHeight="50.0"
+        promptText="Word"/>
+    <TextField fx:id="pronounce"
+        layoutX="310.0" layoutY="90.0"
+        prefWidth="260.0" prefHeight="50.0"
+        promptText="Pronoun"/>
+    <TextArea fx:id="meaning"
+        layoutX="30.0" layoutY="160.0"
+        prefWidth="540.0" prefHeight="120.0"
+        promptText="Meaning"/>
+    <Button layoutX="240.0" layoutY="320.0"
+        onAction="#onAddClick"
+        prefWidth="140.0" prefHeight="38.0"
+        text="Add">
+    </Button>
+</Pane>

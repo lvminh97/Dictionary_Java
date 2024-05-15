@@ -8,63 +8,63 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <Pane onMouseClicked="#onClick"
-    prefHeight="850.0" prefWidth="900.0"
     xmlns="http://javafx.com/javafx/21"
     xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.HelloController"
-    style="-fx-background-color: #CCFFFF">
+    style="-fx-background-color: #CCFFFF"
+    prefWidth="700" prefHeight="580">
     <TextField fx:id="textField"
-        layoutX="140.0" layoutY="30.0"
+        layoutX="20.0" layoutY="30.0"
         onKeyTyped="#onClick"
-        prefHeight="39.0" prefWidth="241.0"
+        prefHeight="39.0" prefWidth="320.0"
         promptText="word" />
-    <Button layoutX="395.0" layoutY="30.0"
+    <Button layoutX="360.0" layoutY="30.0"
         mnemonicParsing="false"
         onAction="#OnSearchClick"
         onKeyTyped="#OnSearchClick"
         prefHeight="39.0" prefWidth="89.0"
-        text="Search  " >
+        text=" Search" >
         <graphic>
             <ImageView>
-                <Image url="@assets/search.png" requestedWidth="18" requestedHeight="18"/>
+                <Image url="@assets/search.png" requestedWidth="20" requestedHeight="20"/>
             </ImageView>
         </graphic>
     </Button>
-    <Button layoutX="495.0" layoutY="30.0"
+    <Button layoutX="460.0" layoutY="30.0"
         mnemonicParsing="false"
         onAction="#onSpeechClick"
         prefHeight="39.0" prefWidth="89.0"
-        text="Speak" >
+        text=" Speak" >
         <graphic>
             <ImageView>
-                <Image url="@assets/speaker.png" requestedWidth="18" requestedHeight="18"/>
+                <Image url="@assets/speaker.png" requestedWidth="20" requestedHeight="20"/>
             </ImageView>
         </graphic>
     </Button>
     <ListView fx:id="listView"
         layoutX="20" layoutY="100"
-        prefHeight="380" prefWidth="280.0" />
+        prefHeight="380" prefWidth="320.0" />
     <ListView fx:id="textArea"
-        layoutX="320" layoutY="100"
-        prefHeight="380" prefWidth="350" />
-    <Button layoutX="30" layoutY="500"
+        layoutX="360" layoutY="100"
+        prefHeight="380" prefWidth="320" />
+    <Button layoutX="20" layoutY="500"
         mnemonicParsing="false"
         onAction="#onAddWordClick"
         prefHeight="39.0" prefWidth="120.0"
         text="Add Word" >
         <graphic>
             <ImageView>
-                <Image url="@assets/plus.png" requestedWidth="18" requestedHeight="18"/>
+                <Image url="@assets/plus.png" requestedWidth="20" requestedHeight="20"/>
             </ImageView>
         </graphic>
     </Button>
-    <Button layoutX="160.0" layoutY="500.0"
+    <Button layoutX="155.0" layoutY="500.0"
         mnemonicParsing="false"
         onAction="#onDeleteClick"
         prefHeight="39.0" prefWidth="120.0"
         text="Remove Word" >
         <graphic>
             <ImageView>
-                <Image url="@assets/trash.png" requestedWidth="16" requestedHeight="18"/>
+                <Image url="@assets/trash.png" requestedWidth="16" requestedHeight="20"/>
             </ImageView>
         </graphic>
     </Button>
@@ -72,27 +72,33 @@
         mnemonicParsing="false"
         onAction="#onSynClick"
         prefHeight="39.0" prefWidth="120.0"
-        text="Sync     " >
+        text="  Synonym" >
         <graphic>
             <ImageView>
-                <Image url="@assets/sync.png" requestedWidth="18" requestedHeight="18"/>
+                <Image url="@assets/sync.png" requestedWidth="20" requestedHeight="20"/>
             </ImageView>
         </graphic>
     </Button>
-    <Button layoutX="420" layoutY="500.0"
+    <Button layoutX="425" layoutY="500.0"
         mnemonicParsing="false"
         onAction="#onTranslate"
         prefHeight="39.0" prefWidth="120.0"
         text="Translate" >
         <graphic>
             <ImageView>
-                <Image url="@assets/translate.png" requestedWidth="18" requestedHeight="18"/>
+                <Image url="@assets/translate.png" requestedWidth="20" requestedHeight="20"/>
             </ImageView>
         </graphic>
     </Button>
-    <Button layoutX="550" layoutY="500.0"
+    <Button layoutX="560" layoutY="500.0"
         mnemonicParsing="false"
         onAction="#onGameClick"
         prefHeight="39.0" prefWidth="120.0"
-        text="Game" />
+        text="  Game" >
+        <graphic>
+            <ImageView>
+                <Image url="@assets/game.png" requestedWidth="25" requestedHeight="20"/>
+            </ImageView>
+        </graphic>
+    </Button>
 </Pane>

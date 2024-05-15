@@ -6,23 +6,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import kotlin.Pair;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 
-public class addWordController {
+public class AddWordController {
     @FXML
     private TextField word;
     @FXML
     private TextField pronounce;
     @FXML
-    private TextField meaning;
+    private TextArea meaning;
     @FXML
-    private TextField title;
+    private Text title;
     private String wordtype;
     private String prountype;
     private String meantype;
