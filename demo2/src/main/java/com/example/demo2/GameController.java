@@ -46,7 +46,7 @@ public class GameController extends interfaceGame {
                             //System.out.println("ALARM!");
                             alarmTime.setText("Time's up");
                             // Tạo một đối tượng Media từ tập tin nhạc
-                            Media media = new Media(new File("C:\\Users\\DELL\\Downloads\\435577__dangale__phone-ringing-5-times-then-picked-up-uk-gpo-746.wav").toURI().toString());
+                            Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\435577__dangale__phone-ringing-5-times-then-picked-up-uk-gpo-746.wav").toURI().toString());
 
                             // Tạo một đối tượng MediaPlayer từ đối tượng Media
                             MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -139,7 +139,7 @@ public class GameController extends interfaceGame {
             if (clickedButton.getText().equals(map5.get(numQues))){
                 clickedButton.setBackground(Background.fill(Color.LIGHTBLUE));
                 // Tạo một đối tượng Media từ tập tin nhạc
-                Media media = new Media(new File("C:\\Users\\DELL\\Downloads\\456162__bwg2020__correct-2.wav").toURI().toString());
+                Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\335908__littlerainyseasons__correct.wav").toURI().toString());
 
                 // Tạo một đối tượng MediaPlayer từ đối tượng Media
                 MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -151,7 +151,7 @@ public class GameController extends interfaceGame {
                 clickedButton.setBackground(Background.fill(Color.RED));
                 check = false;
                 // Tạo một đối tượng Media từ tập tin nhạc
-                Media media = new Media(new File("C:\\Users\\DELL\\Downloads\\161694__zaxtor99__error.wav").toURI().toString());
+                Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\650842__andreas__wrong-answer-buzzer.wav").toURI().toString());
 
                 // Tạo một đối tượng MediaPlayer từ đối tượng Media
                 MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -179,7 +179,7 @@ public class GameController extends interfaceGame {
         timeline.play();
         BufferedReader reader = null;
         try {
-            String filePath = "C:\\Users\\DELL\\IdeaProjects\\demo2\\src\\main\\java\\com\\example\\demo2\\cauhoi.txt";
+            String filePath = "src\\main\\java\\com\\example\\demo2\\cauhoi.txt";
             reader = new BufferedReader(new FileReader(filePath));
             String line;
             StringBuilder ques = new StringBuilder();
