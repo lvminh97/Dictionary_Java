@@ -1,12 +1,12 @@
 package com.example.demo2;
 
-import com.almasb.fxgl.entity.action.Action;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,15 +17,15 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
-public class translateController {
+public class TranslateController {
     @FXML
     private TextField text1;
     @FXML
     private TextField text2;
     @FXML
-    private TextField word;
+    private TextArea word;
     @FXML
-    private TextField meaning;
+    private TextArea meaning;
     private int count = 1;
     public void onTransClick(){
         try {

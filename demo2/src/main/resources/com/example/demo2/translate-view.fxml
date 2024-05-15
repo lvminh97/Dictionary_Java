@@ -5,20 +5,58 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.translateController">
-   <children>
-      <TextField fx:id="text1" alignment="CENTER" layoutX="27.0" layoutY="64.0" prefHeight="74.0" prefWidth="249.0" text="English">
-         <font>
-            <Font size="18.0" />
-         </font></TextField>
-      <TextField fx:id="text2" alignment="CENTER" layoutX="388.0" layoutY="64.0" prefHeight="74.0" prefWidth="258.0" text="Vietnamese">
-         <font>
-            <Font size="18.0" />
-         </font></TextField>
-      <TextField fx:id="word" layoutX="27.0" layoutY="235.0" prefHeight="112.0" prefWidth="249.0" promptText="word" />
-      <TextField fx:id="meaning" layoutX="388.0" layoutY="235.0" prefHeight="112.0" prefWidth="258.0" promptText="meaning" />
-      <Button layoutX="299.0" layoutY="81.0" mnemonicParsing="false" onAction="#onSwitch" prefHeight="39.0" prefWidth="62.0" text="switch" />
-      <Button layoutX="294.0" layoutY="266.0" mnemonicParsing="false" onAction="#onTransClick" prefHeight="39.0" prefWidth="72.0" text="translate" />
-      <Button layoutX="540.0" layoutY="2.0" mnemonicParsing="false" onAction="#onBack" prefWidth="95.0" text="Back" />
-   </children>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextArea?>
+<Pane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo2.TranslateController"
+      style="-fx-background-color: #CCFFFF"
+      prefWidth="670.0" prefHeight="400.0">
+   <Text textAlignment="CENTER"
+      layoutX="250.0" layoutY="40.0" text="TRANSLATE">
+      <font>
+         <Font size="30.0"/>
+      </font>
+   </Text>
+   <Button layoutX="540.0" layoutY="8.0"
+      onAction="#onBack"
+      prefWidth="108.0" prefHeight="35.0"
+      text="Back">
+   </Button>
+   <TextField fx:id="text1"
+      alignment="CENTER"
+      layoutX="27.0" layoutY="80.0"
+      prefWidth="250.0" prefHeight="30"
+      editable="false"
+      text="English">
+      <font>
+         <Font size="18.0"/>
+      </font>
+   </TextField>
+   <TextField fx:id="text2"
+      alignment="CENTER"
+      layoutX="395.0" layoutY="80.0"
+      prefWidth="250.0" prefHeight="30"
+      editable="false"
+      text="Vietnamese">
+      <font>
+         <Font size="18.0"/>
+      </font>
+   </TextField>
+   <Button layoutX="295.0" layoutY="80.0"
+      onAction="#onSwitch"
+      prefWidth="80.0" prefHeight="35.0"
+      text="Switch"/>
+
+   <TextArea fx:id="word"
+      layoutX="27.0" layoutY="180.0"
+      prefWidth="250.0" prefHeight="140.0"
+      promptText="word"/>
+   <TextArea fx:id="meaning"
+      layoutX="395.0" layoutY="180.0"
+      prefWidth="250.0" prefHeight="140.0"
+      promptText="meaning"/>
+   <Button layoutX="295.0" layoutY="180.0"
+      onAction="#onTransClick"
+      prefWidth="80.0" prefHeight="35.0"
+      text="Translate"/>
 </Pane>
