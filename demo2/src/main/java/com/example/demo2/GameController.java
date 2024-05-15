@@ -139,7 +139,7 @@ public class GameController extends interfaceGame {
             if (clickedButton.getText().equals(map5.get(numQues))){
                 clickedButton.setBackground(Background.fill(Color.LIGHTBLUE));
                 // Tạo một đối tượng Media từ tập tin nhạc
-                Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\335908__littlerainyseasons__correct.wav").toURI().toString());
+                Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\456161__bwg2020__correct.wav").toURI().toString());
 
                 // Tạo một đối tượng MediaPlayer từ đối tượng Media
                 MediaPlayer mediaPlayer = new MediaPlayer(media);
