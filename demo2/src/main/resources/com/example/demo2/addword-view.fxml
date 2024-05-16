@@ -10,12 +10,12 @@
 <Pane xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.demo2.AddWordController"
-      style="-fx-background-color: #CCFFFF"
+      style="-fx-background-color: #e7f4ed"
       prefWidth="600.0" prefHeight="400.0">
     <Text fx:id="title" textAlignment="CENTER"
         layoutX="200.0" layoutY="40.0" text="ADD WORD">
         <font>
-            <Font size="30.0"/>
+            <Font name="System Bold" size="30.0"/>
         </font>
     </Text>
     <Button layoutX="460.0" layoutY="8.0"

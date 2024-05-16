@@ -27,7 +27,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class GameController extends interfaceGame {
-    Time time = new Time("00:00:00");
+    int timerCnt = 60; // 1 minute
     private int currentPoint = 0;
 //    private Background defaultBackground;
 //    private int currentNum;
@@ -39,26 +39,25 @@ public class GameController extends interfaceGame {
     private Map<Integer, String> map4 = new HashMap<>();
     private Map<Integer, String> map5 = new HashMap<>();
     private boolean check = true;
+    private final MediaPlayer[] mediaPlayers = new MediaPlayer[3];
+
     Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(1),
-                    e -> {
-                        if(time.getCurrentTime().equals(alarmTime.getText())){
-                            //System.out.println("ALARM!");
-                            alarmTime.setText("Time's up");
-                            // Tạo một đối tượng Media từ tập tin nhạc
-                            Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\435577__dangale__phone-ringing-5-times-then-picked-up-uk-gpo-746.wav").toURI().toString());
-
-                            // Tạo một đối tượng MediaPlayer từ đối tượng Media
-                            MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-                            // Phát nhạc
-                            mediaPlayer.play();
-                            setResult();
-
-                        }
-                        time.oneSecondPassed();
-                        timer.setText(time.getCurrentTime());
-                    }));
+        new KeyFrame(Duration.seconds(1),
+            e -> {
+                if(timerCnt == 0){
+                    //System.out.println("ALARM!");
+                    timer.setText("Time's up");
+                    // Tạo một đối tượng Media từ tập tin nhạc
+                    mediaPlayers[2].play();
+                    setResult();
+                }
+                else if(timerCnt > 0){
+                    timerCnt--;
+                    timer.setText(standardizeTimeString(timerCnt));
+                }
+            }
+        )
+    );
     @FXML
     public void setResult(){
         try {
@@ -67,7 +66,7 @@ public class GameController extends interfaceGame {
             Parent addWordParent = loader.load();
 
             // Get controller của Scene mới
-            gameResultController gameResultController = loader.getController();
+            GameResultController gameResultController = loader.getController();
             // Thực hiện bất kỳ thao tác nào cần thiết với controller của Scene mới
             //addWordController.map(words);
             gameResultController.setPoint(currentPoint);
@@ -125,56 +124,17 @@ public class GameController extends interfaceGame {
         }
 
     }
-    @FXML
-    public void onChooseClick(){
-        // Xử lý sự kiện khi một button được nhấn
-        EventHandler<ActionEvent> buttonHandler = event -> {
-            Button clickedButton = (Button) event.getSource();
-            //System.out.println("Button clicked: " + clickedButton.getText());
-            if (check && clickedButton.getText().equals(map5.get(numQues))){
-                currentPoint = currentPoint + 10;
-                points.setText(String.valueOf(currentPoint));
-                check = false;
-            }
-            if (clickedButton.getText().equals(map5.get(numQues))){
-                clickedButton.setBackground(Background.fill(Color.LIGHTBLUE));
-                // Tạo một đối tượng Media từ tập tin nhạc
-                Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\456161__bwg2020__correct.wav").toURI().toString());
 
-                // Tạo một đối tượng MediaPlayer từ đối tượng Media
-                MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-                // Phát nhạc
-                mediaPlayer.play();
-
-            } else{
-                clickedButton.setBackground(Background.fill(Color.RED));
-                check = false;
-                // Tạo một đối tượng Media từ tập tin nhạc
-                Media media = new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\650842__andreas__wrong-answer-buzzer.wav").toURI().toString());
-
-                // Tạo một đối tượng MediaPlayer từ đối tượng Media
-                MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-                // Phát nhạc
-                mediaPlayer.play();
-                if (button1.getText().equals(map5.get(numQues))) button1.setBackground(Background.fill(Color.LIGHTBLUE));
-                else if (button2.getText().equals(map5.get(numQues))) button2.setBackground(Background.fill(Color.LIGHTBLUE));
-                else if (button3.getText().equals(map5.get(numQues))) button3.setBackground(Background.fill(Color.LIGHTBLUE));
-                else button4.setBackground(Background.fill(Color.LIGHTBLUE));
-            }
-            // Thực hiện xử lý tương ứng với button được nhấn
-        };
-        // Gán cùng một xử lý sự kiện cho tất cả các button
-        button1.setOnAction(buttonHandler);
-        button2.setOnAction(buttonHandler);
-        button3.setOnAction(buttonHandler);
-        button4.setOnAction(buttonHandler);
-    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        alarmTime.setText("0:1:0");
-        timer.setText(time.getCurrentTime());
+        mediaPlayers[0] = new MediaPlayer(
+                new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\456161__bwg2020__correct.wav").toURI().toString()));
+        mediaPlayers[1] = new MediaPlayer(
+                new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\650842__andreas__wrong-answer-buzzer.wav").toURI().toString()));
+        mediaPlayers[2] = new MediaPlayer(
+                new Media(new File("src\\main\\resources\\com\\example\\demo2\\assets\\435577__dangale__phone-ringing-5-times-then-picked-up-uk-gpo-746.wav").toURI().toString()));
+
+        timer.setText(standardizeTimeString(timerCnt));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         BufferedReader reader = null;
@@ -245,6 +205,39 @@ public class GameController extends interfaceGame {
                 button3.setText(map3.get(numQues));
                 button4.setText(map1.get(numQues));
             }
+
+            // Xử lý sự kiện khi một button được nhấn
+            EventHandler<ActionEvent> buttonHandler = event -> {
+                Button clickedButton = (Button) event.getSource();
+                System.out.println("Button clicked: " + clickedButton.getText());
+                if (check && clickedButton.getText().equals(map5.get(numQues))){
+                    currentPoint = currentPoint + 10;
+                    points.setText(String.valueOf(currentPoint));
+                    check = false;
+                }
+                if (clickedButton.getText().equals(map5.get(numQues))){
+                    clickedButton.setBackground(Background.fill(Color.LIGHTBLUE));
+                    mediaPlayers[0].seek(Duration.ZERO);
+                    mediaPlayers[0].play();
+
+                } else{
+                    clickedButton.setBackground(Background.fill(Color.RED));
+                    check = false;
+                    mediaPlayers[1].seek(Duration.ZERO);
+                    mediaPlayers[1].play();
+
+                    if (button1.getText().equals(map5.get(numQues))) button1.setBackground(Background.fill(Color.LIGHTBLUE));
+                    else if (button2.getText().equals(map5.get(numQues))) button2.setBackground(Background.fill(Color.LIGHTBLUE));
+                    else if (button3.getText().equals(map5.get(numQues))) button3.setBackground(Background.fill(Color.LIGHTBLUE));
+                    else button4.setBackground(Background.fill(Color.LIGHTBLUE));
+                }
+            };
+            // Gán cùng một xử lý sự kiện cho tất cả các button
+            button1.setOnAction(buttonHandler);
+            button2.setOnAction(buttonHandler);
+            button3.setOnAction(buttonHandler);
+            button4.setOnAction(buttonHandler);
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -257,5 +250,12 @@ public class GameController extends interfaceGame {
             }
         }
 
+    }
+
+    private String standardizeTimeString(int timerCnt) {
+        if(timerCnt < 0)
+            timerCnt = 0;
+
+        return String.format("%02d:%02d:%02d", timerCnt / 3600, timerCnt % 3600 / 60, timerCnt % 60);
     }
 }

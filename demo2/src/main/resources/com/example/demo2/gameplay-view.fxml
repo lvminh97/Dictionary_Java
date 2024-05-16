@@ -6,41 +6,79 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane accessibleRole="TEXT_FIELD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.control.TextArea?>
+<Pane accessibleRole="TEXT_FIELD"
+      prefWidth="655.0" prefHeight="500.0"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-color: #e7f4ed"
       fx:controller="com.example.demo2.GameController">
-    <children>
-        <Button fx:id="button1" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="232.0" mnemonicParsing="false" onAction="#onChooseClick" prefHeight="85.0" prefWidth="256.0">
-            <font>
-                <Font size="18.0" />
-            </font></Button>
-        <Button fx:id="button2" alignment="CENTER" contentDisplay="CENTER" layoutX="377.0" layoutY="228.0" mnemonicParsing="false" onAction="#onChooseClick" prefHeight="94.0" prefWidth="280.0">
-            <font>
-                <Font size="18.0" />
-            </font></Button>
-        <Button fx:id="button3" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="347.0" mnemonicParsing="false" onAction="#onChooseClick" prefHeight="79.0" prefWidth="247.0">
-            <font>
-                <Font size="18.0" />
-            </font></Button>
-        <Button fx:id="button4" alignment="CENTER" contentDisplay="CENTER" layoutX="377.0" layoutY="341.0" mnemonicParsing="false" onAction="#onChooseClick" prefHeight="85.0" prefWidth="280.0">
-            <font>
-                <Font size="18.0" />
-            </font></Button>
-        <Button layoutX="536.0" layoutY="2.0" mnemonicParsing="false" onAction="#onNextClick" prefHeight="46.0" prefWidth="98.0" text="NEXT" />
-        <TextField fx:id="points" alignment="CENTER" layoutX="6.0" layoutY="13.0" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: LIGHTBLUE;">
-            <font>
-                <Font name="System Bold Italic" size="25.0" />
-            </font>
-        </TextField>
-        <Text fx:id="timer" layoutX="243.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="150.99999999999994">
-            <font>
-                <Font size="25.0" />
-            </font>
-        </Text>
-        <TextField fx:id="alarmTime" alignment="CENTER" layoutX="244.0" layoutY="48.0" style="-fx-background-color: RED;" />
-        <TextField fx:id="textField" alignment="CENTER" layoutX="67.0" layoutY="87.0" prefHeight="131.0" prefWidth="560.0">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </TextField>
-    </children>
+    <TextArea fx:id="textField"
+        layoutX="25.0" layoutY="100.0"
+        prefWidth="606.0" prefHeight="131.0"
+        editable="false"
+        wrapText="true">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </TextArea>
+    <Button fx:id="button1"
+        alignment="CENTER" contentDisplay="CENTER"
+        layoutX="25.0" layoutY="250.0"
+        wrapText="true"
+        prefWidth="256.0" prefHeight="85.0">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Button>
+    <Button fx:id="button2"
+        alignment="CENTER" contentDisplay="CENTER"
+        layoutX="375.0" layoutY="250.0"
+        wrapText="true"
+        prefWidth="256.0" prefHeight="85.0">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Button>
+    <Button fx:id="button3"
+        alignment="CENTER" contentDisplay="CENTER"
+        layoutX="25.0" layoutY="365.0"
+        wrapText="true"
+        prefWidth="256.0" prefHeight="85.0">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Button>
+    <Button fx:id="button4"
+        alignment="CENTER" contentDisplay="CENTER"
+        layoutX="375.0" layoutY="365.0"
+        wrapText="true"
+        prefWidth="256.0" prefHeight="85.0">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="520.0" layoutY="18.0"
+        onAction="#onNextClick"
+        prefWidth="110.0" prefHeight="46.0"
+        text="NEXT"/>
+    <TextField fx:id="points"
+        alignment="CENTER"
+        layoutX="25.0" layoutY="13.0"
+        prefWidth="150.0" prefHeight="46.0"
+        editable="false"
+        style="-fx-border-color: LIGHTBLUE;">
+        <font>
+            <Font name="System Bold Italic" size="25.0"/>
+        </font>
+    </TextField>
+    <Text fx:id="timer"
+        layoutX="255.0" layoutY="55.0"
+        strokeType="OUTSIDE" strokeWidth="0.0"
+        text="00:01:00"
+        style="-fx-fill: RED"
+        textAlignment="CENTER" wrappingWidth="150">
+        <font>
+            <Font size="36.0"/>
+        </font>
+    </Text>
 </Pane>

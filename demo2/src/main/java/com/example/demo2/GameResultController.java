@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class gameResultController{
+public class GameResultController{
     @FXML
     private TextField yourScore;
     @FXML
