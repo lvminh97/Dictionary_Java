@@ -50,6 +50,7 @@ public class GameController extends interfaceGame {
                     // Tạo một đối tượng Media từ tập tin nhạc
                     mediaPlayers[2].play();
                     setResult();
+                    timerCnt = -1;
                 }
                 else if(timerCnt > 0){
                     timerCnt--;
